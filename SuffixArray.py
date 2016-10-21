@@ -42,23 +42,27 @@ def binary_search(pattern, suffixes, lowest=True):
     return result;
 
 # an -> 'ana', 'anana'
-def find(pattern, suffixes):
+def find(pattern):
+    global suffixes
     low = binary_search(pattern, suffixes, True)
     high = binary_search(pattern, suffixes, False)
     result = suffixes[low:high + 1]
     return result
 
-
-res = ['a', 'ana', 'anana', 'banana', 'na', 'nana']
-assert [] == create_suffix('')
-assert res == create_suffix('banana')
-
-assert 5 == binary_search('nan', res)
-assert 5 == binary_search('nan', res, False)
-
-assert 1 == binary_search('an', res)
-assert 2 == binary_search('an', res, False)
-
-assert -1 == binary_search('ax', res)
-
-assert ['ana', 'anana'] == find('an', res)
+def load():
+    pass
+suffixes = create_suffix('banana')
+print(suffixes)
+# res = ['a', 'ana', 'anana', 'banana', 'na', 'nana']
+# assert [] == create_suffix('')
+# assert res == create_suffix('banana')
+#
+# assert 5 == binary_search('nan', res)
+# assert 5 == binary_search('nan', res, False)
+#
+# assert 1 == binary_search('an', res)
+# assert 2 == binary_search('an', res, False)
+#
+# assert -1 == binary_search('ax', res)
+#
+# assert ['ana', 'anana'] == find('an', res)
